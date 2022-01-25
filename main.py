@@ -32,10 +32,63 @@ class Conteiner(GridLayout):
         self.ids['text_C'].text = Sort.sortByKey(Sort(), 'FIO', 'Tabel', up, 'NDL6Staff')[2]
         self.ids['text_B'].text = Sort.sortByKey(Sort(), 'FIO', 'Tabel', up, 'NDL6Staff')[1]
         self.ids['text_D'].text = Sort.sortByKey(Sort(), 'FIO', 'Tabel', up, 'NDL6Staff')[3]
-    def up(self):
-        self.tabel()
-    def down(self):
-        self.tabel(False)
+
+    def oklad(self, up = True):
+        self.ids['text_A'].text = Sort.sortByValue(Sort(), 'FIO', 'Oklad', up,int,'NDL6Staff')[0]
+        self.ids['text_C'].text = Sort.sortByValue(Sort(), 'FIO', 'Oklad', up,int,'NDL6Staff')[2]
+        self.ids['text_B'].text = Sort.sortByValue(Sort(), 'FIO', 'Oklad', up,int,'NDL6Staff')[1]
+        self.ids['text_D'].text = Sort.sortByValue(Sort(), 'FIO', 'Oklad', up,int,'NDL6Staff')[3]
+
+    def prof(self, up=True):
+        self.ids['text_A'].text = Sort.sortByValue(Sort(), 'FIO', 'Prof', up, str, 'NDL6Staff')[0]
+        self.ids['text_C'].text = Sort.sortByValue(Sort(), 'FIO', 'Prof', up, str, 'NDL6Staff')[2]
+        self.ids['text_B'].text = Sort.sortByValue(Sort(), 'FIO', 'Prof', up, str, 'NDL6Staff')[1]
+        self.ids['text_D'].text = Sort.sortByValue(Sort(), 'FIO', 'Prof', up, str, 'NDL6Staff')[3]
+
+    def workplace(self, up = True):
+        self.ids['text_A'].text = Sort.sortByKey(Sort(), 'FIO', 'WorkPlace', up, 'NDL6Staff')[0]
+        self.ids['text_C'].text = Sort.sortByKey(Sort(), 'FIO', 'WorkPlace', up, 'NDL6Staff')[2]
+        self.ids['text_B'].text = Sort.sortByKey(Sort(), 'FIO', 'WorkPlace', up, 'NDL6Staff')[1]
+        self.ids['text_D'].text = Sort.sortByKey(Sort(), 'FIO', 'WorkPlace', up, 'NDL6Staff')[3]
+
+    def bonus(self, up = True):
+        self.ids['text_A'].text = Sort.sortByValue(Sort(), 'FIO', 'Bonus', up,int,'NDL6Staff')[0]
+        self.ids['text_C'].text = Sort.sortByValue(Sort(), 'FIO', 'Bonus', up,int,'NDL6Staff')[2]
+        self.ids['text_B'].text = Sort.sortByValue(Sort(), 'FIO', 'Bonus', up,int,'NDL6Staff')[1]
+        self.ids['text_D'].text = Sort.sortByValue(Sort(), 'FIO', 'Bonus', up,int,'NDL6Staff')[3]
+
+    def phone(self, up = True):
+        self.ids['text_A'].text = Sort.sortByKey(Sort(), 'FIO', 'Phone', up, 'NDL6Staff')[0]
+        self.ids['text_C'].text = Sort.sortByKey(Sort(), 'FIO', 'Phone', up, 'NDL6Staff')[2]
+        self.ids['text_B'].text = Sort.sortByKey(Sort(), 'FIO', 'Phone', up, 'NDL6Staff')[1]
+        self.ids['text_D'].text = Sort.sortByKey(Sort(), 'FIO', 'Phone', up, 'NDL6Staff')[3]
+
+    def adress(self, up = True):
+        self.ids['text_A'].text = Sort.sortByKey(Sort(), 'FIO', 'Adress', up, 'NDL6Staff')[0]
+        self.ids['text_C'].text = Sort.sortByKey(Sort(), 'FIO', 'Adress', up, 'NDL6Staff')[2]
+        self.ids['text_B'].text = Sort.sortByKey(Sort(), 'FIO', 'Adress', up, 'NDL6Staff')[1]
+        self.ids['text_D'].text = Sort.sortByKey(Sort(), 'FIO', 'Adress', up, 'NDL6Staff')[3]
+
+    def birthday(self, up = True):
+        self.ids['text_A'].text = Sort.sortByDate(Sort(), 'FIO', 'Birthday', up, 'NDL6Staff')[0]
+        self.ids['text_C'].text = Sort.sortByDate(Sort(), 'FIO', 'Birthday', up, 'NDL6Staff')[2]
+        self.ids['text_B'].text = Sort.sortByDate(Sort(), 'FIO', 'Birthday', up, 'NDL6Staff')[1]
+        self.ids['text_D'].text = Sort.sortByDate(Sort(), 'FIO', 'Birthday', up, 'NDL6Staff')[3]
+
+
+
+
+
+    # def up(self):
+    #     if '56001' in self.ids['text_C'].text:
+    #         self.tabel()
+    #     elif '56001' not in self.ids['text_C'].text:
+    #         self.oklad()
+    # def down(self):
+    #     if '56001' in self.ids['text_C'].text:
+    #         self.tabel(False)
+    #     elif '56001' not in self.ids['text_C'].text:
+    #         self.oklad(False)
 
 
 class LabInfoApp(App):
@@ -50,3 +103,7 @@ class LabInfoApp(App):
 
 
 LabInfoApp().run()
+
+
+
+

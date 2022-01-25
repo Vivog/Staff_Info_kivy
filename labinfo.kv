@@ -1,11 +1,21 @@
 #:import random random.random
+<BackgroundColor@Widget>
+    background_color: 1, 1, 1, 1
+    canvas.before:
+        Color:
+            rgba: 0.56,0.1,0,1
+        Rectangle:
+            size: self.size
+            pos: self.pos
 <BTN@Button>:
     background_color: 0.56, 0.10, 0
     background_normal:''
 <IMG@Image>:
     center_x: self.parent.center_x
     center_y: self.parent.center_y
-<LBL@Label>:
+<LBL@Label+BackgroundColor>:
+#    font_size: 10
+    size: self.texture_size
     text_size:self.size
     valign:'top'
     halign:'left'
@@ -59,29 +69,46 @@
         spacing:1
         padding:1
         BTN:
+            id: tabel
             on_press:root.tabel()
             IMG:
                 source: 'buttonIcon/tabel.png'
 
         BTN:
+            id: oklad
+            on_press:root.oklad()
             IMG:
                 source: 'buttonIcon/oklad.png'
         BTN:
+            id: prof
+            on_press:
+                root.prof()
+
             IMG:
                 source: 'buttonIcon/prof.png'
         BTN:
+            id: workplace
+            on_press:root.workplace()
             IMG:
                 source: 'buttonIcon/workplace.png'
         BTN:
+            id: bonus
+            on_press:root.bonus()
             IMG:
                 source: 'buttonIcon/bonus.png'
         BTN:
+            id: phone
+            on_press:root.phone()
             IMG:
                 source: 'buttonIcon/phone.png'
         BTN:
+            id: adress
+            on_press:root.adress()
             IMG:
                 source: 'buttonIcon/adress.png'
         BTN:
+            id: birthday
+            on_press:root.birthday()
             IMG:
                 source: 'buttonIcon/birthday.png'
     BoxLayout:
@@ -89,14 +116,17 @@
         spacing:1
         padding:1
         LBL:
+            size_hint:0.59,1
             id: text_A
         LBL:
             id: text_C
         LBL:
+            size_hint:0.59,1
             id: text_B
         LBL:
             id: text_D
         BoxLayout:
+            size_hint:0.15, 1
             orientation:'vertical'
             spacing:1
             padding:1
@@ -105,8 +135,8 @@
                 anchor_y:'top'
                 BTN:
                     id: up
-                    size_hint:0.7, 1
-                    on_press:root.up()
+                    size_hint:1, 1
+#                    on_press:root.up()
                     IMG:
                         source: 'buttonIcon/sortUp.png'
             AnchorLayout:
@@ -114,8 +144,8 @@
                 anchor_y:'top'
                 BTN:
                     id: down
-                    size_hint:0.7, 1
-                    on_press:root.down()
+                    size_hint:1, 1
+#                    on_press:root.down()
                     IMG:
                         source: 'buttonIcon/sortDown.png'
             Widget:

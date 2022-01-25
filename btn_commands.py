@@ -23,8 +23,8 @@ class Sort():
                         continue
                     else:
                         if column_y == 'WorkPlace':
-                            listTextA +='{0:<20}{1}\n'.format(i, 0)
-                            listTextC +='{0:>5}\n'.format(str(self.dictSort[i]))
+                            listTextA += '{0:<20}\n'.format(i)
+                            listTextC += '0{0}\n'.format(str(self.dictSort[i]))
                             counter += 1
                         else:
                             listTextA +='{0:<20}\n'.format(i)
@@ -35,8 +35,8 @@ class Sort():
                         continue
                     else:
                         if column_y == 'WorkPlace':
-                            listTextB +='{0:<20}{1}\n'.format(i, 0)
-                            listTextD +='{0:>5}\n'.format(str(self.dictSort[i]))
+                            listTextB +='{0:<20}\n'.format(i)
+                            listTextD +='0{0}\n'.format(str(self.dictSort[i]))
                         else:
                             listTextB +='{0:<20}\n'.format(i)
                             listTextD +='{0:>5}\n'.format(str(self.dictSort[i]))
@@ -50,8 +50,8 @@ class Sort():
                         continue
                     else:
                         if column_y == 'WorkPlace':
-                            listTextA +='{0:<20}{1}\n'.format(i, 0)
-                            listTextC +='{0:>5}\n'.format(str(self.dictSort[i]))
+                            listTextA += '{0:<20}\n'.format(i)
+                            listTextC += '0{0}\n'.format(str(self.dictSort[i]))
                             counter += 1
                         else:
                             listTextA +='{0:<20}\n'.format(i)
@@ -62,15 +62,15 @@ class Sort():
                         continue
                     else:
                         if column_y == 'WorkPlace':
-                            listTextB +='{0:<20}{1}\n'.format(i, 0)
-                            listTextD +='{0:>5}\n'.format(str(self.dictSort[i]))
+                            listTextB += '{0:<20}\n'.format(i)
+                            listTextD += '0{0}\n'.format(str(self.dictSort[i]))
                         else:
                             listTextB +='{0:<20}\n'.format(i)
                             listTextD +='{0:>5}\n'.format(str(self.dictSort[i]))
             return (listTextA, listTextB, listTextC, listTextD)
 
     def sortByValue(self, column_x='', column_y='', up=True, key=str, sheet_name = 'NDL6Staff'):
-        listTextA, listTextB = '', ''
+        listTextA, listTextB, listTextC, listTextD = '', '', '',''
         counter = 0
         self.dictSort = self.make_dict(column_x, column_y, sheet_name)
         if up:
@@ -82,16 +82,18 @@ class Sort():
                             if i == 0:
                                 continue
                             else:
-                                listTextA += k + '\t' + str(self.dictSort.pop(k)) + '\n'
+                                listTextA += '{0:<15}\n'.format(k)
+                                listTextC += '{0:>1}\n'.format(str(self.dictSort.pop(k)))
                                 counter += 1
                                 break
                         else:
                             if i == 0:
                                 continue
                             else:
-                                listTextB += k + '\t' + str(self.dictSort.pop(k)) + '\n'
+                                listTextB += '{0:<15}\n'.format(k)
+                                listTextD += '{0:>1}\n'.format(str(self.dictSort.pop(k)))
                                 break
-            return (listTextA, listTextB)
+            return (listTextA, listTextB, listTextC, listTextD)
         else:
             self.listSort = sorted(self.dictSort.values(), key=key, reverse=True)
             for i in self.listSort:
@@ -101,19 +103,21 @@ class Sort():
                             if i == 0:
                                 continue
                             else:
-                                listTextA += k + '\t' + str(self.dictSort.pop(k)) + '\n'
+                                listTextA += '{0:<15}\n'.format(k)
+                                listTextC += '{0:>1}\n'.format(str(self.dictSort.pop(k)))
                                 counter += 1
                                 break
                         else:
                             if i == 0:
                                 continue
                             else:
-                                listTextB += k + '\t' + str(self.dictSort.pop(k)) + '\n'
-                                break
-            return (listTextA, listTextB)
+                                listTextB += '{0:<15}\n'.format(k)
+                                listTextD += '{0:>1}\n'.format(str(self.dictSort.pop(k)))
+                            break
+            return (listTextA, listTextB, listTextC, listTextD)
 
     def sortByDate(self, column_x ='', column_y ='', up=True, sheet_name = 'NDL6Staff'):
-        listTextA, listTextB = '', ''
+        listTextA, listTextB, listTextC, listTextD = '', '', '', ''
         counter = 0
         self.dictSort = self.make_dict(column_x, column_y, sheet_name)
         if up:
@@ -126,11 +130,13 @@ class Sort():
                     age = str(age)
                     if self.dictSort[k] == i:
                         if counter < 20:
-                            listTextA += k + '\t' + str(self.dictSort.pop(k)) + '    ' + age + '\n'
+                            listTextA += '{0:<20}\n'.format(k)
+                            listTextC += '{0:>5}{1:>5}\n'.format(str(self.dictSort.pop(k)), age)
                             counter += 1
                             break
                         else:
-                            listTextB += k + '\t' + str(self.dictSort.pop(k)) + '    ' + age + '\n'
+                            listTextB += '{0:<20}\n'.format(k)
+                            listTextD += '{0:>5}{1:>5}\n'.format(str(self.dictSort.pop(k)), age)
                             break
             return (listTextA, listTextB)
         else:
@@ -143,13 +149,15 @@ class Sort():
                     age = str(age)
                     if self.dictSort[k] == i:
                         if counter < 20:
-                            listTextA += k + '\t' + str(self.dictSort.pop(k)) + '    ' + age + '\n'
+                            listTextA += '{0:<20}\n'.format(k)
+                            listTextC += '{0:>5}{1:>5}\n'.format(str(self.dictSort.pop(k)), age)
                             counter += 1
                             break
                         else:
-                            listTextB += k + '\t' + str(self.dictSort.pop(k)) + '    ' + age + '\n'
+                            listTextB += '{0:<20}\n'.format(k)
+                            listTextD += '{0:>5}{1:>5}\n'.format(str(self.dictSort.pop(k)), age)
                             break
-            return (listTextA, listTextB)
+            return (listTextA, listTextB, listTextC, listTextD)
 
     def sort_BY_age(self, age_min=0, age_max=100, up=True, sheet_name = 'NDL6Staff'):
         listTextA= ''
