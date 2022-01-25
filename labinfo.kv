@@ -1,0 +1,124 @@
+#:import random random.random
+<BTN@Button>:
+    background_color: 0.56, 0.10, 0
+    background_normal:''
+<IMG@Image>:
+    center_x: self.parent.center_x
+    center_y: self.parent.center_y
+<LBL@Label>:
+    text_size:self.size
+    valign:'top'
+    halign:'left'
+    text:'Text_A'
+
+<Conteiner>:
+    cols:1
+    rows:6
+    BoxLayout:
+        size_hint: 1, 0.2
+        spacing:1
+        padding:1
+        BTN:
+            id: aver_oklad
+            text: ''
+            color:0.56, 0.10, 0
+            on_press: root.aver_oklad()
+            IMG:
+                source: 'buttonIcon/averageOklad.png'
+        Label:
+            id: text_aver
+            text: ''
+            font_size:24
+            foreground_color:0.56, 0.10, 0
+        BTN:
+            IMG:
+                source: 'buttonIcon/folder.png'
+        BTN:
+            IMG:
+                source: 'buttonIcon/listGroup.png'
+        BoxLayout:
+            orientation: 'vertical'
+            CheckBox:
+
+            CheckBox:
+
+            CheckBox:
+
+        BoxLayout:
+            orientation: 'vertical'
+            CheckBox:
+
+            CheckBox:
+
+            CheckBox:
+
+        BTN:
+            text:'8'
+    BoxLayout:
+        size_hint: 1, 0.2
+        spacing:1
+        padding:1
+        BTN:
+            on_press:root.tabel()
+            IMG:
+                source: 'buttonIcon/tabel.png'
+
+        BTN:
+            IMG:
+                source: 'buttonIcon/oklad.png'
+        BTN:
+            IMG:
+                source: 'buttonIcon/prof.png'
+        BTN:
+            IMG:
+                source: 'buttonIcon/workplace.png'
+        BTN:
+            IMG:
+                source: 'buttonIcon/bonus.png'
+        BTN:
+            IMG:
+                source: 'buttonIcon/phone.png'
+        BTN:
+            IMG:
+                source: 'buttonIcon/adress.png'
+        BTN:
+            IMG:
+                source: 'buttonIcon/birthday.png'
+    BoxLayout:
+        size_hint:1, 0.6
+        spacing:1
+        padding:1
+        LBL:
+            id: text_A
+        LBL:
+            id: text_C
+        LBL:
+            id: text_B
+        LBL:
+            id: text_D
+        BoxLayout:
+            orientation:'vertical'
+            spacing:1
+            padding:1
+            AnchorLayout:
+                anchor_x:'right'
+                anchor_y:'top'
+                BTN:
+                    id: up
+                    size_hint:0.7, 1
+                    on_press:root.up()
+                    IMG:
+                        source: 'buttonIcon/sortUp.png'
+            AnchorLayout:
+                anchor_x:'right'
+                anchor_y:'top'
+                BTN:
+                    id: down
+                    size_hint:0.7, 1
+                    on_press:root.down()
+                    IMG:
+                        source: 'buttonIcon/sortDown.png'
+            Widget:
+            Widget:
+
+
